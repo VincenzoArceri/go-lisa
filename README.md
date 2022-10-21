@@ -4,18 +4,19 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/UniVE-SSV/go-lisa)
 ![GitHub issues](https://img.shields.io/github/issues-raw/UniVE-SSV/go-lisa)
 
-GoLiSA: A Static Analyzer for Go Smart Contracts and Decentralized Applications (SAC 2023)
+GoLiSA: A Parametric Static Analyzer for Go(SAC 2023)
 
 ## How to use GoLiSA
 The main class is [GoLiSA](go-lisa/src/main/java/it/unive/golisa/GoLiSA.java) and it expects four paramaters:
 - `-i path`: the Go file to be analyzed
 - `-o path`: the output directory
-- `-f framework`: the blockchain framework used in the input file (hyperledger-fabric, cosmos-sdk, tendermint-core)
-- `-a analysis`: the analysis to perform to detect issues of non-determinism (taint, non-interference)
+- `-box, -oct, -poly`: the numerical analysis
+- `-ucci`: the taint analysis with the untrusted cross-contract invocation semantic checker
+- `over-under-flow-check`: the underflow semantic checker
 
 ### Example of command line
 
-`-i C:\Users\MyAccount\mycontract.go -o C:\Users\MyAccount\output -f hyperledger-fabric -a taint`
+`-i sm.go -o output -box -over-under-flow-check`
 
 ## How to build the project ##
 GoLiSA comes as a Gradle 6.0 project. For development with Eclipse, please install the [Gradle IDE Pack](https://marketplace.eclipse.org/content/gradle-ide-pack) plugin from the Eclipse marketplace, and make sure to import the project into the workspace as a Gradle project.
